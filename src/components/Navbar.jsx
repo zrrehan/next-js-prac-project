@@ -1,4 +1,18 @@
+"use client";
+import { useEffect, useState } from "react";
+import LoginButton from "./Navbar/LoginButton";
+import { usePathname } from "next/navigation";
+
 function Navbar() {
+    const [username, setUsername] = useState("");
+    const pathname = usePathname();
+
+    useEffect(() => {
+        const name = localStorage.getItem("username");
+        console.log(name); 
+        setUsername(name);
+    }, [pathname]);
+
     return(
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
@@ -11,7 +25,13 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn btn-neutral">Login</a>
+                {
+                    !username ? <LoginButton /> : <div className="avatar avatar-placeholder">
+                        <div className="btn bg-gray-200 rounded-full w-9">
+                            <span>{username[0]}</span>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     )
