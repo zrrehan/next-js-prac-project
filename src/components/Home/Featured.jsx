@@ -1,6 +1,18 @@
+export const dynamic = "force-dynamic";
 async function Featured() {
-    const products = await fetch(`http://localhost:3000/api/products/`)
-        .then(res => res.json());
+    // const products = await fetch(`http://localhost:3000/api/products/`)
+    //     .then(res => res.json());
+    let products = [];
+    try {
+        const res = await fetch(`https://scic-nextjs-assignment.vercel.app/api/products/`);
+        if(!res.ok) {
+            console.log("error");
+        } else {
+            products = await res.json();
+        }
+    } catch(err) {
+        console.log("error");
+    }
     return(
         <div className="space-y-8 flex flex-col items-center">
             <h1 className="text-6xl font-bold">Product Highlight</h1>

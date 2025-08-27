@@ -30,7 +30,7 @@ function Navbar() {
                 {
                     !username ? <LoginButton /> : <div className="avatar avatar-placeholder">
                         <div className="btn bg-gray-200 rounded-full w-9">
-                            <span>{username[0]}</span>
+                            <span>{username[0].toUpperCase()}</span>
                         </div>
                     </div>
                 }

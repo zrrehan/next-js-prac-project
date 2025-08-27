@@ -29,7 +29,7 @@ function AddProdcut() {
         ]
         console.log(name, price, imgURL, description);
 
-        fetch("http://localhost:3000/api/products", {
+        fetch("https://scic-nextjs-assignment.vercel.app/api/products", {
             method: "POST", 
             body: JSON.stringify({name, price, imgURL, description}), 
             headers: {
@@ -37,7 +37,7 @@ function AddProdcut() {
             }
         }).then(res => {
             Swal.fire({
-                title: "Drag me!",
+                title: "Successfully posted the Item",
                 icon: "success",
                 draggable: true
             });
