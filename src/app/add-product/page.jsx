@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react"
+import Swal from "sweetalert2";
 
 function AddProdcut() {
     const [username, setUsername] = useState(null);
@@ -35,7 +36,12 @@ function AddProdcut() {
                 "Content-type": "application/json"
             }
         }).then(res => {
-            alert("Posted");
+            Swal.fire({
+                title: "Drag me!",
+                icon: "success",
+                draggable: true
+            });
+            event.target.reset();
         })
     }
     return(
