@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import LoginButton from "./Navbar/LoginButton";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 function Navbar() {
     const [username, setUsername] = useState("");
@@ -19,9 +20,10 @@ function Navbar() {
                 <a className="btn btn-ghost text-xl">daisyUI</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li><a>Item 1</a></li>
-                    <li><a>Item 3</a></li>
+                <ul className="menu menu-horizontal px-1 space-x-5 text-xl">
+                    <Link href = "/"><li>Home</li></Link>
+                    <Link href="/"><li>Home</li></Link>
+                    <Link href="/add-product"><li>Add Product</li></Link>
                 </ul>
             </div>
             <div className="navbar-end">
