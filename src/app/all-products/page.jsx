@@ -3,15 +3,22 @@ import { TbCoinTaka } from "react-icons/tb";
 export const dynamic = "force-dynamic";
 async function AllProducts() {
     let products = [];
+    const baseUrl =
+        process.env.NODE_ENV === 'production'
+            ? process.env.NEXT_PUBLIC_BASE_URL
+            : 'http://localhost:3000';
+
     try {
-        const res = await fetch("https://scic-nextjs-assignment.vercel.app/api/products")
+        const res = await fetch(`${baseUrl}/api/products`)
+        console.log(res);
         if(!res.ok) {
             console.log("error")
         } else {
             products = await res.json();
+            console.log(products);
         }
     } catch(err) {
-        console.log("error")
+        console.log(err)
     }
     
     return(

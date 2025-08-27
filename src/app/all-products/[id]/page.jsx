@@ -5,8 +5,12 @@ async function Products({params}) {
     // const data = await fetch(`http://localhost:3000/api/products/${id}`)
     //     .then(res => res.json());
     let data = [] 
+    const baseUrl =
+        process.env.NODE_ENV === 'production'
+            ? process.env.NEXT_PUBLIC_BASE_URL
+            : 'http://localhost:3000';
     try {
-        const res = await fetch(`https://scic-nextjs-assignment.vercel.app/api/products/${id}`);
+        const res = await fetch(`${baseUrl}/api/products/${id}`);
         if(!res.ok) {
             console.log(error);
         } else {

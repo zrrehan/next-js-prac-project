@@ -29,7 +29,7 @@ function AddProdcut() {
         ]
         console.log(name, price, imgURL, description);
 
-        fetch("https://scic-nextjs-assignment.vercel.app/api/products", {
+        fetch("http:/localhost:3000/api/products", {
             method: "POST", 
             body: JSON.stringify({name, price, imgURL, description}), 
             headers: {

@@ -3,8 +3,12 @@ async function Featured() {
     // const products = await fetch(`http://localhost:3000/api/products/`)
     //     .then(res => res.json());
     let products = [];
+    const baseUrl =
+        process.env.NODE_ENV === 'production'
+            ? process.env.NEXT_PUBLIC_BASE_URL
+            : 'http://localhost:3000';
     try {
-        const res = await fetch(`https://scic-nextjs-assignment.vercel.app/api/products/`);
+        const res = await fetch(`${baseUrl}/api/products/`);
         if(!res.ok) {
             console.log("error");
         } else {
