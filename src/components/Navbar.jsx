@@ -7,7 +7,7 @@ import Link from "next/link";
 function Navbar() {
     const [username, setUsername] = useState("");
     const pathname = usePathname();
-
+    console.log(pathname)
     useEffect(() => {
         const name = localStorage.getItem("username");
         console.log(name); 
@@ -20,10 +20,10 @@ function Navbar() {
                 <a className="btn btn-ghost text-xl">daisyUI</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 space-x-5 text-xl">
-                    <Link href = "/"><li>Home</li></Link>
-                    <Link href="/all-products"><li>All Products</li></Link>
-                    <Link href="/add-product"><li>Add Product</li></Link>
+                <ul className="menu menu-horizontal px-1 space-x-5 text-xl flex items-center">
+                    <Link href = "/" className={pathname === "/" ? "active":""}><li>Home</li></Link>
+                    <Link href="/all-products" className={pathname === "/all-products" ? "active":""}><li>All Products</li></Link>
+                    <Link href="/add-product" className={pathname === "/add-product" ? "active":""}><li>Add Product</li></Link>
                 </ul>
             </div>
             <div className="navbar-end">
