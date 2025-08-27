@@ -27,6 +27,16 @@ function AddProdcut() {
             event.target.description.value,
         ]
         console.log(name, price, imgURL, description);
+
+        fetch("http://localhost:3000/api/products", {
+            method: "POST", 
+            body: JSON.stringify({name, price, imgURL, description}), 
+            headers: {
+                "Content-type": "application/json"
+            }
+        }).then(res => {
+            alert("Posted");
+        })
     }
     return(
         <form onSubmit={formHandler} className="fieldset mx-auto my-10  border-base-300 rounded-box w-xs border p-4">
